@@ -2,8 +2,12 @@
 A comprehensive web-based transportation solution designed to address the commuting challenges faced by IIT Hyderabad students. Limited public transport options, especially during peak hours, weekends, and festivals, result in unpredictable commutes and logistical challenges.
 
 Seamless Transportation for IITH Students
-SAM Transport Hub is an innovative web platform designed to solve the commuting challenges faced by IIT Hyderabad students. By integrating bus booking, carpooling, and auto-sharing services into a single intuitive interface, we're transforming how students travel between campus and key locations in Hyderabad.
-The Problem We Solve
+
+SAM Transport Hub is an innovative web platform designed to solve the commuting challenges faced by IIT Hyderabad students. 
+By integrating bus booking, carpooling, and auto-sharing services into a single intuitive interface, we're transforming how students travel between campus and key locations in Hyderabad.
+
+The Problem We Solve:
+
 Located on the outskirts of Hyderabad, IITH students face significant transportation barriers: limited public transport options, unpredictable schedules during peak hours, frustrating commute experiences during weekends and festivals, and a lack of coordinated transportation solutions.
 
 Design Thinking Approach
