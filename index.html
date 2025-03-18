@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM Transport Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="iith_logo.svg" alt="IITH Logo" class="header-logo">
+                <div class="title-container">
+                    <h1>SAM Transport Hub</h1>
+                    <div class="names">
+                        <span>SOHAM</span>
+                        <span>ARPIT</span>
+                        <span>MOHSIN</span>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#bus-booking" class="nav-link active" data-section="bus-booking">Bus Booking</a></li>
+                    <li><a href="#carpooling" class="nav-link" data-section="carpooling">Carpooling</a></li>
+                    <li><a href="#auto-sharing" class="nav-link" data-section="auto-sharing">Auto Sharing</a></li>
+                    <li><a href="#my-bookings" class="nav-link" data-section="my-bookings">My Bookings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Bus Booking Section -->
+        <section id="bus-booking" class="section active">
+            <div class="container">
+                <h2>Book Bus Tickets</h2>
+                <div class="route-info">
+                    <!-- From Location -->
+                    <div class="route">
+                        <label class="route-label">From</label>
+                        <div class="location-selector">
+                            <div class="location-input-wrapper">
+                                <input type="text" class="location-input" id="bus-source" placeholder="Enter pickup location">
+                                <button class="clear-input" type="button" aria-label="Clear source location">×</button>
+                            </div>
+                            <div class="location-dropdown">
+                                <div class="recent-searches">
+                                    <div class="recent-searches-title">Popular Locations</div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🏛️</div>
+                                        <div class="location-details">
+                                            <div class="location-name">IIT Hyderabad</div>
+                                            <div class="location-type">Campus</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🚉</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Miyapur</div>
+                                            <div class="location-type">Metro Station</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🏙️</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Patancheru</div>
+                                            <div class="location-type">City Center</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To Location -->
+                    <div class="route">
+                        <label class="route-label">To</label>
+                        <div class="location-selector">
+                            <div class="location-input-wrapper">
+                                <input type="text" class="location-input" id="bus-destination" placeholder="Enter destination">
+                                <button class="clear-input" type="button" aria-label="Clear destination location">×</button>
+                            </div>
+                            <div class="location-dropdown">
+                                <div class="recent-searches">
+                                    <div class="recent-searches-title">Popular Destinations</div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🌆</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Hyderabad City</div>
+                                            <div class="location-type">City Center</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🏢</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Gachibowli</div>
+                                            <div class="location-type">Business District</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🚉</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Lingampally</div>
+                                            <div class="location-type">Railway Station</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🚉</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Secunderabad Station</div>
+                                            <div class="location-type">Railway Station</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="date-picker">
+                        <label for="travel-date">Travel Date:</label>
+                        <input type="date" id="travel-date">
+                        <label for="travel-time">Time:</label>
+                        <div class="time-input-wrapper">
+                            <input type="time" id="travel-time" name="travel-time" required readonly>
+                            <div class="clock-container">
+                                <div class="clock-mode">
+                                    <button class="mode-btn active" data-mode="hours">Hours</button>
+                                    <button class="mode-btn" data-mode="minutes">Minutes</button>
+                                </div>
+                                <div class="analog-clock">
+                                    <div class="clock-marks"></div>
+                                    <div class="clock-center"></div>
+                                    <div class="clock-hand hour-hand"></div>
+                                    <div class="clock-hand minute-hand"></div>
+                                </div>
+                                <div class="time-period">
+                                    <button class="period-btn active" data-period="AM">AM</button>
+                                    <button class="period-btn" data-period="PM">PM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="search-buses" class="btn primary">Search Buses</button>
+                </div>
+
+                <div id="bus-results" class="results-container">
+                    <!-- Bus results will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Carpooling Section -->
+        <section id="carpooling" class="section hidden">
+            <div class="container">
+                <h2>Carpooling</h2>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="find-carpool">Find a Carpool</button>
+                    <button class="tab-btn" data-tab="offer-carpool">Offer a Carpool</button>
+                </div>
+
+                <div id="find-carpool" class="tab-content active">
+                    <div class="search-form">
+                        <!-- From Location -->
+                        <div class="form-group">
+                            <label class="route-label">From</label>
+                            <div class="location-selector">
+                                <div class="location-input-wrapper">
+                                    <input type="text" class="location-input" id="carpool-from" placeholder="Enter pickup location">
+                                    <button class="clear-input" type="button" aria-label="Clear source location">×</button>
+                                </div>
+                                <div class="location-dropdown">
+                                    <div class="recent-searches">
+                                        <div class="recent-searches-title">Popular Locations</div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🏛️</div>
+                                            <div class="location-details">
+                                                <div class="location-name">IIT Hyderabad</div>
+                                                <div class="location-type">Campus</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🚉</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Miyapur</div>
+                                                <div class="location-type">Metro Station</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🏙️</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Patancheru</div>
+                                                <div class="location-type">City Center</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- To Location -->
+                        <div class="form-group">
+                            <label class="route-label">To</label>
+                            <div class="location-selector">
+                                <div class="location-input-wrapper">
+                                    <input type="text" class="location-input" id="carpool-to" placeholder="Enter destination">
+                                    <button class="clear-input" type="button" aria-label="Clear destination location">×</button>
+                                </div>
+                                <div class="location-dropdown">
+                                    <div class="recent-searches">
+                                        <div class="recent-searches-title">Popular Destinations</div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🌆</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Hyderabad City</div>
+                                                <div class="location-type">City Center</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🏢</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Gachibowli</div>
+                                                <div class="location-type">Business District</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🚉</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Lingampally</div>
+                                                <div class="location-type">Railway Station</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🚉</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Secunderabad Station</div>
+                                                <div class="location-type">Railway Station</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="date-picker">
+                            <label for="carpool-date">Travel Date:</label>
+                            <input type="date" id="carpool-date" class="location-input">
+                            <label for="carpool-time">Time:</label>
+                            <div class="time-input-wrapper">
+                                <input type="time" id="carpool-time" name="carpool-time" required readonly>
+                                <div class="clock-container">
+                                    <div class="clock-mode">
+                                        <button class="mode-btn active" data-mode="hours">Hours</button>
+                                        <button class="mode-btn" data-mode="minutes">Minutes</button>
+                                    </div>
+                                    <div class="analog-clock">
+                                        <div class="clock-marks"></div>
+                                        <div class="clock-center"></div>
+                                        <div class="clock-hand hour-hand"></div>
+                                        <div class="clock-hand minute-hand"></div>
+                                    </div>
+                                    <div class="time-period">
+                                        <button class="period-btn active" data-period="AM">AM</button>
+                                        <button class="period-btn" data-period="PM">PM</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="search-carpools" class="btn primary">Search</button>
+                    </div>
+
+                    <div id="carpool-results" class="results-container">
+                        <!-- Carpool results will be displayed here -->
+                    </div>
+                </div>
+
+                <div id="offer-carpool" class="tab-content hidden">
+                    <form id="offer-form">
+                        <!-- From Location -->
+                        <div class="form-group">
+                            <label class="route-label">From</label>
+                            <div class="location-selector">
+                                <div class="location-input-wrapper">
+                                    <input type="text" class="location-input" id="offer-from" placeholder="Enter pickup location">
+                                    <button class="clear-input" type="button" aria-label="Clear source location">×</button>
+                                </div>
+                                <div class="location-dropdown">
+                                    <div class="recent-searches">
+                                        <div class="recent-searches-title">Popular Locations</div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🏛️</div>
+                                            <div class="location-details">
+                                                <div class="location-name">IIT Hyderabad</div>
+                                                <div class="location-type">Campus</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🚉</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Miyapur</div>
+                                                <div class="location-type">Metro Station</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🏙️</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Patancheru</div>
+                                                <div class="location-type">City Center</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- To Location -->
+                        <div class="form-group">
+                            <label class="route-label">To</label>
+                            <div class="location-selector">
+                                <div class="location-input-wrapper">
+                                    <input type="text" class="location-input" id="offer-to" placeholder="Enter destination">
+                                    <button class="clear-input" type="button" aria-label="Clear destination location">×</button>
+                                </div>
+                                <div class="location-dropdown">
+                                    <div class="recent-searches">
+                                        <div class="recent-searches-title">Popular Destinations</div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🌆</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Hyderabad City</div>
+                                                <div class="location-type">City Center</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🏢</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Gachibowli</div>
+                                                <div class="location-type">Business District</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🚉</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Lingampally</div>
+                                                <div class="location-type">Railway Station</div>
+                                            </div>
+                                        </div>
+                                        <div class="location-option">
+                                            <div class="location-icon">🚉</div>
+                                            <div class="location-details">
+                                                <div class="location-name">Secunderabad Station</div>
+                                                <div class="location-type">Railway Station</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="route-label">Date</label>
+                            <input type="date" id="offer-date" class="location-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="route-label">Time</label>
+                            <div class="time-input-wrapper">
+                                <input type="time" id="offer-time" name="offer-time" required readonly>
+                                <div class="clock-container">
+                                    <div class="clock-mode">
+                                        <button class="mode-btn active" data-mode="hours">Hours</button>
+                                        <button class="mode-btn" data-mode="minutes">Minutes</button>
+                                    </div>
+                                    <div class="analog-clock">
+                                        <div class="clock-marks"></div>
+                                        <div class="clock-center"></div>
+                                        <div class="clock-hand hour-hand"></div>
+                                        <div class="clock-hand minute-hand"></div>
+                                    </div>
+                                    <div class="time-period">
+                                        <button class="period-btn active" data-period="AM">AM</button>
+                                        <button class="period-btn" data-period="PM">PM</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer-form-row">
+                            <div class="offer-form-field">
+                                <label for="offer-seats">Available Seats</label>
+                                <input type="number" id="offer-seats" min="1" max="6" value="3" required>
+                            </div>
+                            <div class="offer-form-field">
+                                <label for="offer-price">Price per Seat (₹)</label>
+                                <input type="number" id="offer-price" min="0" value="50" required>
+                            </div>
+                        </div>
+                        <div class="offer-form-field">
+                            <label for="offer-notes">Additional Notes</label>
+                            <textarea id="offer-notes" placeholder="Any additional information"></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Post Carpool Offer</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auto Sharing Section -->
+        <section id="auto-sharing" class="section hidden">
+            <div class="container">
+                <h2>Auto Sharing</h2>
+                <div class="route-info">
+                    <!-- From Location -->
+                    <div class="route">
+                        <label class="route-label">From</label>
+                        <div class="location-selector">
+                            <div class="location-input-wrapper">
+                                <input type="text" class="location-input" id="auto-source" placeholder="Enter pickup location" value="IIT Hyderabad">
+                                <button class="clear-input" type="button" aria-label="Clear source location">×</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To Location -->
+                    <div class="route">
+                        <label class="route-label">To</label>
+                        <div class="location-selector">
+                            <div class="location-input-wrapper">
+                                <input type="text" class="location-input" id="auto-destination" placeholder="Enter destination">
+                                <button class="clear-input" type="button" aria-label="Clear destination location">×</button>
+                            </div>
+                            <div class="location-dropdown">
+                                <div class="recent-searches">
+                                    <div class="recent-searches-title">Popular Destinations</div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🏙️</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Patancheru</div>
+                                            <div class="location-type">City Center</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🏘️</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Isnapur</div>
+                                            <div class="location-type">Residential Area</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🚉</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Miyapur</div>
+                                            <div class="location-type">Metro Station</div>
+                                        </div>
+                                    </div>
+                                    <div class="location-option">
+                                        <div class="location-icon">🌆</div>
+                                        <div class="location-details">
+                                            <div class="location-name">Hyderabad City</div>
+                                            <div class="location-type">City Center</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="search-autos" class="btn primary">Search Autos</button>
+                </div>
+
+                <div id="auto-results" class="results-container">
+                    <!-- Auto results will be displayed here -->
+                </div>
+
+                <div class="available-drivers-section">
+                    <h3>Available Auto Drivers</h3>
+                    <div id="auto-drivers" class="drivers-grid">
+                        <!-- Auto drivers will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Bookings Section -->
+        <section id="my-bookings" class="section hidden">
+            <div class="container">
+                <h2>My Bookings</h2>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="bus-tickets">Bus Tickets</button>
+                    <button class="tab-btn" data-tab="carpool-bookings">Carpool Bookings</button>
+                    <button class="tab-btn" data-tab="auto-bookings">Auto Bookings</button>
+                </div>
+
+                <div id="bus-tickets" class="tab-content active">
+                    <div id="bus-bookings-list" class="bookings-list">
+                        <!-- Bus bookings will be displayed here -->
+                        <p class="empty-message">You have no bus bookings yet.</p>
+                    </div>
+                </div>
+
+                <div id="carpool-bookings" class="tab-content hidden">
+                    <div id="carpool-bookings-list" class="bookings-list">
+                        <!-- Carpool bookings will be displayed here -->
+                        <p class="empty-message">You have no carpool bookings yet.</p>
+                    </div>
+                </div>
+
+                <div id="auto-bookings" class="tab-content hidden">
+                    <div id="auto-bookings-list" class="bookings-list">
+                        <!-- Auto bookings will be displayed here -->
+                        <p class="empty-message">You have no auto bookings yet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bus Seat Selection Modal -->
+    <div id="seat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Select Your Seat</h3>
+            <div id="modal-bus-details" class="bus-details-summary"></div>
+            <div class="seat-map-container">
+                <div class="seat-map-legend">
+                    <div class="legend-item">
+                        <div class="seat available"></div>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="seat selected"></div>
+                        <span>Selected</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="seat booked"></div>
+                        <span>Booked</span>
+                    </div>
+                </div>
+                <div id="seat-map" class="seat-map"></div>
+            </div>
+            <div class="passenger-details">
+                <h4>Passenger Details</h4>
+                <form id="passenger-form">
+                    <div class="form-group">
+                        <label for="passenger-name">Name:</label>
+                        <input type="text" id="passenger-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passenger-email">Email:</label>
+                        <input type="email" id="passenger-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passenger-phone">Phone:</label>
+                        <input type="tel" id="passenger-phone" required>
+                    </div>
+                </form>
+            </div>
+            <div class="booking-summary">
+                <h4>Booking Summary</h4>
+                <div id="booking-details"></div>
+                <div class="total">
+                    <span>Total:</span>
+                    <span id="total-fare">₹0</span>
+                </div>
+            </div>
+            <button id="confirm-booking" class="btn primary">Confirm Booking</button>
+        </div>
+    </div>
+
+    <!-- Carpool Details Modal -->
+    <div id="carpool-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Carpool Details</h3>
+            <div id="modal-carpool-details" class="carpool-details-summary"></div>
+            <div class="passenger-details">
+                <h4>Your Details</h4>
+                <form id="carpool-passenger-form">
+                    <div class="form-group">
+                        <label for="carpool-passenger-name">Name:</label>
+                        <input type="text" id="carpool-passenger-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carpool-passenger-email">Email:</label>
+                        <input type="email" id="carpool-passenger-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carpool-passenger-phone">Phone:</label>
+                        <input type="tel" id="carpool-passenger-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carpool-seats">Number of Seats:</label>
+                        <input type="number" id="carpool-seats" min="1" value="1" required>
+                    </div>
+                </form>
+            </div>
+            <button id="request-carpool" class="btn primary">Request to Join</button>
+        </div>
+    </div>
+
+    <!-- Auto Booking Modal -->
+    <div id="auto-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Book Auto</h3>
+            <div id="modal-auto-details" class="auto-details-summary"></div>
+            <div class="passenger-details">
+                <h4>Passenger Details</h4>
+                <form id="auto-passenger-form">
+                    <div class="form-group">
+                        <label for="auto-passenger-name">Name:</label>
+                        <input type="text" id="auto-passenger-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="auto-passenger-phone">Phone:</label>
+                        <input type="tel" id="auto-passenger-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-auto-destination">Destination:</label>
+                        <select id="modal-auto-destination" required>
+                            <option value="">Select Destination</option>
+                            <option value="Patancheru">Patancheru</option>
+                            <option value="Isnapur">Isnapur</option>
+                            <option value="Miyapur">Miyapur</option>
+                            <option value="Hyderabad City">Hyderabad City</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="booking-summary">
+                <h4>Fare Details</h4>
+                <div id="auto-booking-details"></div>
+                <div class="total">
+                    <span>Total:</span>
+                    <span id="auto-total-fare">₹0</span>
+                </div>
+            </div>
+            <button id="confirm-auto-booking" class="btn primary">Confirm Booking</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; SAM IITH Transport Hub</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all location inputs and their related elements
+        const locationInputs = document.querySelectorAll('.location-input');
+        const clearButtons = document.querySelectorAll('.clear-input');
+        const locationOptions = document.querySelectorAll('.location-option');
+        const dropdowns = document.querySelectorAll('.location-dropdown');
+
+        // Handle input focus
+        locationInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const dropdown = input.closest('.location-selector').querySelector('.location-dropdown');
+                // Hide all other dropdowns
+                dropdowns.forEach(d => d.classList.remove('show'));
+                // Show this dropdown
+                dropdown.classList.add('show');
+            });
+        });
+
+        // Handle clear button clicks
+        clearButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const input = button.previousElementSibling;
+                input.value = '';
+                input.focus();
+            });
+        });
+
+        // Handle location option selection
+        locationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const input = option.closest('.location-selector').querySelector('.location-input');
+                const locationName = option.querySelector('.location-name').textContent;
+                input.value = locationName;
+                option.closest('.location-dropdown').classList.remove('show');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.location-selector')) {
+                dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+            }
+        });
+    });
+    </script>
+</body>
+</html>
